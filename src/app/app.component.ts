@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'AngularOpdracht';
+
+  clicked(sport: any) {
+    alert('hello world from app component');
+    console.log(sport);
+  }
 }

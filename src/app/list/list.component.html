@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let sport of sports | balsport:showNotBalSports">
+    <span (click)="onClick(sport)">{{sport.name}}</span>
+  </li>
+</ul>
