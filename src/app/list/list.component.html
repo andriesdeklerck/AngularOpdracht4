@@ -1,5 +1,9 @@
-<ul>
-  <li *ngFor="let sport of sports | balsport:showNotBalSports">
-    <span (click)="onClick(sport)">{{sport.name}}</span>
+<ul *ngIf="!error">
+  <li *ngFor="let movie of movies">
+    <span (click)="onClick(movie)">{{movie.title}}</span>
   </li>
 </ul>
+
+<p *ngIf="error">
+  {{error}}
+</p>

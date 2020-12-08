@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { SportService } from '../sport.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-list',
@@ -7,24 +7,29 @@ import { SportService } from '../sport.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-  @Input() showNotBalSports?: boolean;
+
   @Output() onClicked = new EventEmitter();
-  sports = [];
-  constructor(private sportService: SportService) {
+
+  movies: any = [];
+  error = null;
+
+  constructor(private movieService: MovieService) {
 
   }
 
   ngOnInit(): void {
-    console.log(this.showNotBalSports);
+    this.loadMovies();
   }
 
   onClick(value: any) {
     this.onClicked.emit(value);
-    this.loadSports();
   }
 
-  loadSports() {
-    this.sportService.getTopRated().subscribe((result) => this.sports = result);
-    console.log(this.sportService.getTopRated());
+  loadMovies() {
+    this.movieService.getTopRated().subscribe(
+      data => this.movies = data.results,
+      error => this.error = error
+      );
+    // console.log(this.movieService.getTopRated());
   }
 }
