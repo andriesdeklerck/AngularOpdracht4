@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 import { DEFAULT_CONFIG, NgForageOptions, Driver } from 'ngforage';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { DEFAULT_CONFIG, NgForageOptions, Driver } from 'ngforage';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     // One way of configuring ngForage

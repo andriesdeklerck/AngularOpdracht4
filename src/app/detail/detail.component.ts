@@ -4,8 +4,7 @@ import { MovieService } from '../movie.service';
 
 @Component({
   selector: 'app-detail',
-  templateUrl: './detail.component.html',
-  styleUrls: ['../bootstrap.css']
+  templateUrl: './detail.component.html'
 })
 export class DetailComponent implements OnInit {
 

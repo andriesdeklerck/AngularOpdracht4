@@ -4,8 +4,7 @@ import { NgForage } from 'ngforage';
 
 @Component({
   selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['../bootstrap.css']
+  templateUrl: './list.component.html'
 })
 export class ListComponent implements OnInit {
 
