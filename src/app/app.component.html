@@ -1,1 +1,22 @@
-<app-list (onClicked)="clicked($event)"></app-list>
+<nav class="navbar fixed-top navbar-toggleable-sm navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+
+    <button class="navbar-toggler" data-toggle="collapse" data-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/movielist">Movies</a>
+        </li>
+        <li class="nav-item">
+          <button class="btn nav-link" (click)="ChangeView()">Change view</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

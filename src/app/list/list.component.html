@@ -1,9 +1,36 @@
-<ul *ngIf="!error">
-  <li *ngFor="let movie of movies">
-    <span (click)="onClick(movie)">{{movie.title}}</span>
-  </li>
-</ul>
-
-<p *ngIf="error">
-  {{error}}
-</p>
+<div class="container">
+  <div *ngIf="!error">
+    <div [ngSwitch]="card" class=" mt-5">
+      <div *ngSwitchCase="false">
+        <table class="table table-striped">
+          <tr class="bg-success sticky-top">
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Release date</th>
+          </tr>
+          <tr *ngFor="let movie of movies; index as i">
+            <th scope="row">{{i + 1}}</th>
+            <td><a routerLink="/moviedetail/{{movie.id}}">{{movie.title}}</a></td>
+            <td>{{movie.release_date}}</td>
+          </tr>
+        </table>
+      </div>
+      <div *ngSwitchCase="true">
+        <div *ngFor="let movie of movies;">
+          <div class="row">
+            <div class="col-md-9 col-lg-12">
+              <div class="card mt-2 mb-2">
+                <div class="card-block p-2">
+                  <h3 class="card-title"><a routerLink="/moviedetail/{{movie.id}}">{{movie.title}}</a></h3>
+                  <p>{{movie.release_date}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p *ngIf="error">
+        {{error}}
+      </p>
+    </div>
+  </div>
